@@ -1,0 +1,244 @@
+/* Variables */
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap');
+$cyan: hsl(179, 62%, 43%);
+$yellow: hsl(71, 73%, 54%);
+$lightGray: hsl(204, 43%, 93%);
+$grayBlue: hsl(218, 22%, 67%);
+$fontSize: 16px;
+$fontFamily: 'Karla', sans-serif;
+$fontWeightLight: 400;
+$fontWeightHeavy: 700;
+
+/* Accessibility */
+.sr-only {
+    display: none;
+}
+
+/* Desktop Design */
+
+// Layout
+html {
+    background-color: $lightGray;
+    font-family: $fontFamily;
+    font-size: $fontSize;
+    font-weight: $fontWeightLight;
+    height: 100%;
+
+    body {
+        margin: 0;
+        height: 100%;
+
+        #root {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+
+            main {
+                background-color: white;
+                width: 40rem;
+                height: 30rem;
+                border-radius: 0.5rem;
+                box-shadow: 0rem 1rem 1.5rem hsla(218, 22%, 67%, 0.3);
+                display: flex;
+                align-items: stretch;
+                justify-content: space-between;
+                flex-direction: column;
+            }
+        }
+    }
+}
+
+// Content
+.tiles {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex: 1.8;
+}
+
+.tile-1 {
+    flex: 1;
+    font-weight: $fontWeightHeavy;
+    flex-grow: 1;
+    padding: 2.5rem;
+
+    h1 {
+        margin: 0;
+        color: $cyan;
+    }
+
+    p {
+        margin: 0;
+    }
+
+    p:nth-child(2) {
+        color: $yellow;
+        margin-top: 1.5rem;
+        font-size: 1.1rem;
+    }
+
+    p:nth-child(3) {
+        color: hsla(218, 22%, 67%, 0.7);
+        margin-top: 0.8rem;
+        line-height: 1.7rem;
+        font-weight: $fontWeightLight;
+    }
+}
+
+.tile-2,
+.tile-3 {
+    flex: 1;
+    height: 11.3rem;
+    padding: 2.5rem;
+    color: $lightGray;
+}
+
+.tile-2 {
+    background-color: $cyan;
+    border-bottom-left-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+
+    h2 {
+        margin: 0;
+        font-size: large;
+    }
+
+    div {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 0.8rem;
+        margin-top: -1rem;
+
+        span:nth-child(1) {
+            font-size: xx-large;
+            font-weight: $fontWeightHeavy;
+        }
+
+        span:nth-child(2) {
+            font-size: 1rem;
+            color: hsl(204, 43%, 93%, 0.45);
+        }
+    }
+
+    p {
+        margin: 0;
+        font-size: medium;
+        color: hsla(204, 43%, 93%, 0.75);
+        margin-top: -1.5rem;
+    }
+
+    button {
+        border: none;
+        border-radius: 0.3rem;
+        height: 3rem;
+        width: 100%;
+        background-color: $yellow;
+        color: white;
+        font-weight: $fontWeightLight;
+        font-size: 1rem;
+        margin-top: 1rem;
+        font-family: $fontFamily;
+        box-shadow: 0rem 0.5rem 1rem hsla(179, 62%, 30%, 0.5);
+        cursor: pointer;
+
+        &:hover { 
+            background-color: hsla(71, 73%, 60%);
+        }
+    }
+}
+
+.tile-3 {
+    background-color: hsla(179, 62%, 43%, 0.88);
+    border-bottom-right-radius: 0.5rem;
+
+    h2 {
+        margin: 0;
+        font-size: large;
+    }
+
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        font-size: 0.8rem;
+        font-weight: $fontWeightLight;
+        margin-top: 1.2rem;
+        font-size: 0.85rem;
+        color: hsla(204, 43%, 93%, 0.6);
+
+        li+li {
+            margin-top: 0.25rem;
+        }
+    }
+}
+
+/* Mobile Design */
+
+@media (max-width:600px) {
+
+    // Layout
+    html {
+        height: unset;
+
+        body {
+            height: unset;
+
+            #root {
+                height: fit-content;
+                margin: 5rem 0rem;
+
+                main {
+                    width: 19rem;
+                    height: fit-content;
+                    border-radius: 0.3rem;
+                }
+            }
+        }
+    }
+
+    // Content
+    .tiles {
+        flex-direction: column;
+        flex: 2;
+    }
+
+    .tile-1 {
+        padding: 2rem 1.5rem;
+
+        h1 {
+            font-size: 1.2rem;
+        }
+
+        p:nth-child(2) {
+            font-size: 1rem;
+        }
+
+        p:nth-child(3) {
+            font-size: 0.84rem;
+            line-height: 1.6rem;
+        }
+    }
+
+    .tile-2,
+    .tile-3 {
+        height: unset;
+        padding: 1.5rem 2rem;
+    }
+
+    .tile-2 {
+        border-bottom-left-radius: 0rem;
+        justify-content: unset;
+        gap: 2rem;
+    }
+
+    .tile-3 { 
+        border-bottom-left-radius: 0.3rem;
+        border-bottom-right-radius: 0.3rem;
+    }
+
+}
